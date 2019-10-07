@@ -12,20 +12,20 @@ public class CreateCommand extends Command {
 	}
 	@Override
 	public void execute() {
-		CompanyBean param = new CompanyBean();
-		param.setEmpno(request.getParameter("empNo"));
-		param.setEname(request.getParameter("eName"));
-		param.setJob(request.getParameter("job"));
-		param.setMgr(request.getParameter("mgr"));
-		param.setHireDate(request.getParameter("hireDate"));
-		param.setSal(request.getParameter("sal"));
-		param.setComm(request.getParameter("comm"));
-		param.setDeptno(request.getParameter("deptNo"));
-		if (CompanyServiceImpl.getInstance().joinEmp(param)) {
+		CompanyBean cp = new CompanyBean();
+		cp.setEmpno(request.getParameter("empNo"));
+		cp.setEname(request.getParameter("eName"));
+		cp.setJob(request.getParameter("job"));
+		cp.setMgr(request.getParameter("mgr"));
+		cp.setHireDate(request.getParameter("hireDate"));
+		cp.setSal(request.getParameter("sal"));
+		cp.setComm(request.getParameter("comm"));
+		cp.setDeptno(request.getParameter("deptNo"));
+		if (CompanyServiceImpl.getInstance().joinEmp(cp)) {
 			System.out.println("회원가입 성공");
 		}else {
 			System.out.println("회원가입 실패");
-			request.setAttribute("page","login");
+			setPage("login");
 			setDomain("facade");
 			request.setAttribute("action",request.getContextPath()+"/facade.do");
 		}

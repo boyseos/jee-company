@@ -28,7 +28,8 @@ public class Command implements Order {
 	}
 	
 	public void setPage() {
-		page = (request.getParameter("page")==null) ?
+		page = page != null ? page : 
+			(request.getParameter("page")==null) ?
 				"login" : request.getParameter("page");
 		request.setAttribute("page", page);
 	}

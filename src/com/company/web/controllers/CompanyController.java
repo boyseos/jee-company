@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.company.web.commands.Receiver;
 import com.company.web.commands.Sender;
-import com.company.web.enums.Action;
 
 @WebServlet("/company.do")
 public class CompanyController extends HttpServlet {
