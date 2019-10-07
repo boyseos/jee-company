@@ -21,7 +21,7 @@
 			<div>dname 	: </div>
 			<div><input type="text" name="dName"/></div>
 			<input type="hidden" name="action" value="create" />
-			<input type="hidden" name="page" value="main" />
+			<input type="hidden" name="page" value="login" />
 			<input type="button" id="join_form_button" value="회원가입"/>
 		</div>
 	</form>
