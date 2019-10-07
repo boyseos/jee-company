@@ -4,6 +4,7 @@
 	<div>7</div>
 	<div>8</div>
 	<div>9</div>
+	</div>
 <script>
 	app.init('${ctx}');
 </script> 

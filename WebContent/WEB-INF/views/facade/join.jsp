@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	
-		<form id="join_form">
+	<form id="join_form">
 		<div class="join_tab">
 			<div>사원번호	: </div>
 			<div><input type="text" name="empNo" id="join_username" /></div>
@@ -25,4 +24,4 @@
 			<input type="hidden" name="page" value="main" />
 			<input type="button" id="join_form_button" value="회원가입"/>
 		</div>
-		</form>
+	</form>

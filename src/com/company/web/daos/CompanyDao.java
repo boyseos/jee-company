@@ -7,5 +7,5 @@ import com.company.web.domains.CompanyBean;
 public interface CompanyDao {
 	public boolean insertEmp(CompanyBean param);
 	public CompanyBean selectByEmpnoEname(CompanyBean param);
-	public List<CompanyBean> findByTable(CompanyBean param);
+	public List<CompanyBean> findByDeptTable();
 }

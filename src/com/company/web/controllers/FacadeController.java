@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.company.web.pool.Constants;
+import com.company.web.commands.Receiver;
+import com.company.web.commands.Sender;
 
 @WebServlet("/facade.do")
 public class FacadeController extends HttpServlet {
@@ -17,23 +18,14 @@ public class FacadeController extends HttpServlet {
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse
 			response) throws ServletException, IOException {
-		System.out.println("파사드로 들어옴 "+request.getServletPath());
 		for(Resource r : Resource.values()) {
-			
 			request.getSession().setAttribute(r.toString().toLowerCase(),
 					r.toString().toLowerCase().equals("ctx")
 					?request.getContextPath()
 					:request.getContextPath()+"/resources/"+r.toString().toLowerCase());
 		}
-		if(request.getParameter("page")==null) {
-			request.setAttribute("page", "login");
-		} else{
-			request.setAttribute("page", request.getParameter("page"));
-		}
-		request.getRequestDispatcher(
-				String.format(Constants.DOUBLE_PATH,
-						request.getServletPath().substring(1,request.getServletPath().indexOf(".")),"main"))
-	    .forward(request, response);
+		Receiver.init(request);
+		Sender.forward(request, response);
 			
 	}
 }

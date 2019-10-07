@@ -7,18 +7,15 @@ import com.company.web.enums.Action;
 
 public class Commander  {
 	 public static Command direct(HttpServletRequest request) {
-		 System.out.println("커맨더");
 		 Command cmd = null;
 		 try {
-			switch (Action.valueOf(request.getParameter("action").toUpperCase())) {
-			case CREATE:
-				cmd = new CreateCommand(request); break;
-			case LOGIN:
-				cmd = new LoginCommand(request); break;
-			case MOVE:
-				cmd = new MoveCommand(request); break;
-			default:
-				break;
+			switch (Action.valueOf(
+					(request.getParameter("action")==null) ? 
+							"MOVE": request.getParameter("action")
+							.toUpperCase())) {
+				case CREATE:	cmd = new CreateCommand(request);	break;
+				case LOGIN:		cmd = new LoginCommand(request); 	break;
+				default:		cmd = new MoveCommand(request);		break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

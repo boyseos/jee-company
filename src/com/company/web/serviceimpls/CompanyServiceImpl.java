@@ -14,21 +14,18 @@ public class CompanyServiceImpl implements CompanyService{
 	private CompanyServiceImpl() {}
 	
 	@Override
-	public boolean join(CompanyBean param) {
-		
+	public boolean joinEmp(CompanyBean param) {
 		return CompanyDaoImpl.getInstance().insertEmp(param);
 	}
 
 	@Override
-	public CompanyBean login(CompanyBean param) {
-		
+	public CompanyBean loginEmp(CompanyBean param) {
 		return CompanyDaoImpl.getInstance().selectByEmpnoEname(param);
 	}
 
 	@Override
-	public List<CompanyBean> search(CompanyBean param) {
-		
-		return CompanyDaoImpl.getInstance().findByTable(param);
+	public List<CompanyBean> findAllDept() {
+		return CompanyDaoImpl.getInstance().findByDeptTable();
 
 	
 }

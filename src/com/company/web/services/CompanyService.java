@@ -6,7 +6,7 @@ import com.company.web.domains.CompanyBean;
 
 public interface CompanyService {
 
-	public boolean join(CompanyBean param);
-	public CompanyBean login(CompanyBean param);
-	public List<CompanyBean> search(CompanyBean param);
+	public boolean joinEmp(CompanyBean param);
+	public CompanyBean loginEmp(CompanyBean param);
+	public List<CompanyBean> findAllDept();
 }

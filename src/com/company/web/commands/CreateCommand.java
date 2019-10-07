@@ -7,11 +7,8 @@ import com.company.web.serviceimpls.CompanyServiceImpl;
 
 public class CreateCommand extends Command {
 	public CreateCommand(HttpServletRequest request) {
-		System.out.println("생성커맨드");
-		super.setRequest(request);
-		setDomain("facade");
-		setAction(request.getParameter("action"));
-		this.execute();
+		setRequest(request);
+		execute();
 	}
 	@Override
 	public void execute() {
@@ -24,15 +21,14 @@ public class CreateCommand extends Command {
 		param.setSal(request.getParameter("sal"));
 		param.setComm(request.getParameter("comm"));
 		param.setDeptno(request.getParameter("deptNo"));
-		
-		if (CompanyServiceImpl.getInstance().join(param)) {
-			setPage(request.getParameter("page"));
-			
+		if (CompanyServiceImpl.getInstance().joinEmp(param)) {
+			System.out.println("회원가입 성공");
 		}else {
-			setPage(request.getParameter("page"));
+			System.out.println("회원가입 실패");
+			request.setAttribute("page","login");
+			setDomain("facade");
+			request.setAttribute("action",request.getContextPath()+"/facade.do");
 		}
-		request.setAttribute("param", CompanyServiceImpl
-				.getInstance().join(param));
 		super.execute();
 	}
 }

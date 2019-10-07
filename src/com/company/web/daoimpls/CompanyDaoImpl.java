@@ -2,7 +2,6 @@ package com.company.web.daoimpls;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +11,8 @@ import com.company.web.factories.DatabaseFactory;
 import com.company.web.pool.Constants;
 
 public class CompanyDaoImpl implements CompanyDao{
-private static CompanyDaoImpl instance = new CompanyDaoImpl();
-	
+	private static CompanyDaoImpl instance = new CompanyDaoImpl();	
 	public static CompanyDaoImpl getInstance() {return instance;}
-	
 	private CompanyDaoImpl() {}
 	
 	@Override
@@ -38,12 +35,10 @@ private static CompanyDaoImpl instance = new CompanyDaoImpl();
 			stmt.setString(8, param.getDeptno());
 			int rs = stmt.executeUpdate();
 			flag = (rs==1)? true : false;
-			System.out.println("다오임플1"+rs);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println("다오임플2"+flag);
+		System.out.println("db값 : "+flag);
 		return flag;
 	}
 
@@ -63,12 +58,10 @@ private static CompanyDaoImpl instance = new CompanyDaoImpl();
 			PreparedStatement stmt = DatabaseFactory.createDatabase(Constants.VENDOR)
 					.getConnection()
 					.prepareStatement(sql);
-			System.out.println("sql: "+sql);
 			stmt.setString(1, param.getDname());
 			stmt.setString(2, param.getEmpno());
 			stmt.setString(3, param.getEname());
 			ResultSet rs = stmt.executeQuery();
-			System.out.println("DB도착");
 			while(rs.next()) {
 				emp.setEmpno(rs.getString(1));
 				emp.setEname(rs.getString(2));
@@ -87,11 +80,12 @@ private static CompanyDaoImpl instance = new CompanyDaoImpl();
 	}
 
 	@Override
-	public List<CompanyBean> findByTable(CompanyBean param) {
+	public List<CompanyBean> findByDeptTable() {
 		List<CompanyBean> tables = new ArrayList<CompanyBean>();
-		String sql = " SELECT DNAME , LOC , DEPTNO\r\n" + 
+		String result = "",
+				sql = " SELECT DNAME , LOC , DEPTNO\r\n" + 
 							" FROM DEPT ";
-		
+		CompanyBean dept = null;
 		try {
 			PreparedStatement stmt = DatabaseFactory
 					.createDatabase(Constants.VENDOR)
@@ -99,16 +93,17 @@ private static CompanyDaoImpl instance = new CompanyDaoImpl();
 					.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
-				CompanyBean emp = new CompanyBean();
-				emp.setDname(rs.getString(1));
-				emp.setLoc(rs.getString(2));
-				emp.setDeptno(rs.getString(3));
-				tables.add(emp);
+				dept = new CompanyBean();
+				dept.setDname(rs.getString(1));
+				dept.setLoc(rs.getString(2));
+				dept.setDeptno(rs.getString(3));
+				tables.add(dept);
+				result += dept.toString()+"\n";
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("db값 : "+result);
 		return tables;
 	}
 

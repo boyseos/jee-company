@@ -22,9 +22,20 @@ html, body {
 	grid-template-columns: 20% 80%;
 	grid-template-rows: 15% 15% 15% 15% 15% 15% 15% 15%;
 }
-.join_tab{border: 2px dotted blue}
+.join_tab{border: 1px dotted blue}
 
-#soccer_intro{
+
+.mypage_tab{  
+	display: grid;
+	width: 100%;
+	height: 100%;
+	background-color: #405040;
+	grid-template-columns: 20% 80%;
+	grid-template-rows: 8% 8% 8% 8% 8% 8% 8% 8% 8%;
+}
+.mypage_tab{border: 1px dotted blue}
+
+#dept_intro{
 	width: 100%;
 	height: 100%;
 }

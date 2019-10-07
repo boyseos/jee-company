@@ -12,5 +12,5 @@
 				<jsp:include page="join.jsp"/>
 			</c:when>
 		</c:choose>
-		</div>		
+	</div>		
 <jsp:include page="../common/foot.jsp"/>

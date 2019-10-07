@@ -2,27 +2,27 @@
     pageEncoding="UTF-8"%>
 <form id="login_form">
 	<div class="login_tab">
-		<div id="login_tab_item4">
+		<div>
 			부서명
 		</div>
-		<div id="login_tab_item5">
+		<div>
 			<input id="login_userdept" class="input_text" type="text" name="dName"/>
 		</div>
-		<div id="login_tab_item1">
+		<div>
 			아이디
 		</div>
-		<div id="login_tab_item6">
+		<div>
 			<input id="login_username" class="input_text" type="text" name="empNo"/>
 		</div>
-		<div id ="login_tab_item3">
+		<div>
 			비밀번호
 		</div>
-		<div id ="login_tab_item7">
+		<div>
 			<input id="login_userpass" class="input_text" type="text" name="eName">
 		</div>
-		<div id="login_tab_item2">
+		<div>
 			<input type="hidden" name="action" value="login"/>
-			<input type="hidden" name="page" value="main"/>
+			<input type="hidden" name="page" value="mypage"/>
 			<input id="login_btn" type="button" value="로그인"/>
 		</div>
 			<div>
