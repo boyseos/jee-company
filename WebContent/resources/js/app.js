@@ -31,7 +31,6 @@ var empService = (()=>{
 		               alert('필수값이 없습니다.');
 		            }else{
 		               alert('입력한 아이디 값: '+$('#join_username').val());
-		               $('#join_form').attr('action', ctx+'/facade.do');
 		               $('#join_form').attr('method','POST')
 		               $('#join_form').submit();
 		            }

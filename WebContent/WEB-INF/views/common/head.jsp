@@ -16,4 +16,3 @@
 		<img id="dept_intro" src="${img}/dept_intro.png"/>
 		</div>
 		<div>3</div>
-		<div>4</div>

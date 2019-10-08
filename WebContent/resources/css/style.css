@@ -8,21 +8,23 @@ html, body {
 	display: grid;
 	width: 100%;
 	height: 100%;
-	background-color: #405040;
+	background-color: #93ab93;
 	grid-template-columns: 20% 60% 20%;
 	grid-template-rows: 20% 60% 20%;
 }
-.wrapper div{border : 3px dotted black}
+.wrapper div{border: 1px dotted black;}
 
-.join_tab{  
-	display: grid;
-	width: 100%;
-	height: 100%;
-	background-color: #405040;
-	grid-template-columns: 20% 80%;
-	grid-template-rows: 15% 15% 15% 15% 15% 15% 15% 15%;
+form#join_form {
+    margin:  auto;
+    padding: 20px;
+    display: grid;
+    width: 80%;
+    height: 80%;
+    background-color: #809bbd;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 8% 8% 8% 8% 8% 8% 8% 8% 8% 8%;
 }
-.join_tab{border: 1px dotted blue}
+form#join_form{border: 1px dotted #0072ff}
 
 
 .mypage_tab{  

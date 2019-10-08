@@ -17,11 +17,15 @@ public class LoginCommand extends Command{
 		cp.setEname(request.getParameter("eName"));
 		cp.setDname(request.getParameter("dName"));
 		cp = CompanyServiceImpl.getInstance().loginEmp(cp);
-		if(cp !=null) {
+		if(cp.getEmpno() !=null) {
 			request.setAttribute("user", cp);
 			request.setAttribute("company", CompanyServiceImpl.getInstance().findAllDept());
+			System.out.println("로그인 성공");
 		} else {
 			setPage("login");
+			setDomain("facade");
+			request.setAttribute("action",request.getContextPath()+"/facade.do");
+			System.out.println("로그인 실패");
 		}
 		super.execute();
 	}

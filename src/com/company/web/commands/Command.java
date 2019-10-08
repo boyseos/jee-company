@@ -19,7 +19,8 @@ public class Command implements Order {
 	}
 	
 	public void setDomain() {
-		domain = (request.getServletPath()
+		domain = domain != null ? domain : 
+				(request.getServletPath()
 				.substring(1,request.getServletPath().indexOf(".")));
 	}
 	

@@ -25,7 +25,6 @@ public class FacadeController extends HttpServlet {
 					:request.getContextPath()+"/resources/"+r.toString().toLowerCase());
 		}
 		Receiver.init(request);
-		Sender.forward(request, response);
-			
+		Sender.forward(request, response);			
 	}
 }
